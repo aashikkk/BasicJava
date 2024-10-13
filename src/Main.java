@@ -1,18 +1,13 @@
-class OuterClass{
-    int x = 10;
-
-    class InnerClass{
-        public int innerMethod(){
-            return x;
-        }
-    }
+enum Level {
+    LOW,
+    MEDIUM,
+    HIGH
 }
 
-public class Main {
+public class Main{
     public static void main(String[] args) {
-        OuterClass myOuter = new OuterClass();
-        OuterClass.InnerClass myInner = myOuter.new InnerClass();
-        System.out.println(myInner.innerMethod());
+        for (Level myVar : Level.values()) {
+            System.out.println(myVar);
+        }    }
 
-    }
 }
