@@ -16,7 +16,7 @@ A method must be declared within a class. It is defined with the name of the met
 * myMethod() is the name of the method
 * static means that the method belongs to the Main class and not an object of the Main class. You will learn more about objects and how to access methods through objects later in this tutorial.
 * void means that this method does not have a return value. You will learn more about return values later in this chapter
-* 
+*
 ### Java recursion
 Recursion is the technique of making a function call itself. This technique provides a way to break complicated problems down into simple problems which are easier to solve.
 Ex: Adding sum of 10
@@ -60,7 +60,10 @@ Since the function does not call itself when k is 0, the program stops there and
         }
     }
 
-### Scanner 
+### Scanner
+
+![img.png](src/img4.png)
+
     System.in -- Input Stream da class to get input.
         // Class Object = new Class();
         Scanner sc = new Scanner(System.in);
@@ -99,7 +102,7 @@ Pyramid using just Scanner and print
         System.out.println(" " + num + " " + num+ " " + num+ " " + num+ " " + num);
         System.out.println(num + " " + num+ " " + num+ " " + num+ " " + num+ " " + num);
 
-### If else 
+### If else
 ```
 int num = 10;
 if (num == 10){
@@ -119,7 +122,7 @@ System.out.println("Less than 10");
 
 ### Logical Operator
 
-&& - And 
+&& - And
 
 || - Or
 
@@ -149,7 +152,7 @@ System.out.println("Less than 10");
 ```
 
 ### Switch case
-    
+
 
         int a =1;
         
@@ -176,8 +179,8 @@ System.out.println("Less than 10");
                 // If one case matches, it will not check other cases and will print automatically, where we use break.
         }
 
-### Variable 
-    
+### Variable
+
     Format:
         DataType variableName;
 
@@ -248,7 +251,7 @@ iNCREMENT/ DEC Exercise.
         System.out.println(c); 
 
 Relational Operator
-    
+
         > >= < <= =!
         XOR ku 1,0 vantha 1 // same vantha 0
 
@@ -257,7 +260,7 @@ Relational Operator
         | OR
         ~ NOT
 
-### BIT WISE Shift 
+### BIT WISE Shift
         <<  Left shift
         >>  Right shift
         >>> Left shift zero fill
@@ -276,9 +279,9 @@ Relational Operator
         2<<1 - Left shift, like 2^2.
         0000 1000 - 8
         0001 0000 - 16
-        
 
-![img.png](img.png)
+
+![img.png](src/img.png)
 
 ### Short circuit logical Op
 
@@ -288,16 +291,16 @@ Relational Operator
         //                  false           --> return false, next condition pakathu. Normal & enda rendum pathu than output varum.
         System.out.println( a>20 && a<30);
 
-![img_1.png](img_1.png)
+![img_1.png](src/img_1.png)
 
 ### Priority list Precedence
-![img_2.png](img_2.png)
+![img_2.png](src/img_2.png)
 
 #### XOR
 
 Getting the same input value. can use to swap variables as well.
 
-![img_3.png](img_3.png)
+![img_3.png](src/img_3.png)
 
         // Whatever we put get as the result
        int a = 5;
@@ -352,195 +355,6 @@ Grade Exercise
         for (String i: arr){
             System.out.println(i);
         }
-
-
-# OOP Notes
-### Encapsulation
-
-// Person.Java
-
-    public class Person{
-    private String name;
-
-    // Getter
-    public String getName(){
-        return name;
-    }
-
-    // Setter
-    public void setName(String newName){
-        this.name = newName;
-        }
-    }
-
-// Main.java
-
-    public class Main {
-        public static void main(String[] args) {
-            Person person = new Person();
-            person.setName("jhon");
-            System.out.println(person.getName());
-        }
-    }
-
-When u declare variable as private, if you have to assign value or get that value,
-you have to use getter and setter inorder to do that. otherwise cannot access unless same class (Main, Person - 2 sep Java class).
-Cannot access private variable from outside of the class.
-
-### Abstraction
-
-Abstract Classes and Methods
-Data abstraction is the process of hiding certain details and showing only essential information to the user.
-Abstraction **can be achieved with either abstract classes or interfaces** 
-
-The abstract keyword is a **non-access modifier, used for classes and methods**:
-
-**Abstract class:** is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
-
-**Abstract method:** can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
-
-An abstract class can have both abstract and regular methods:
-
-    abstract class Animal {
-        public abstract void animalSound();
-            public void sleep() {
-                System.out.println("Zzz");
-            }
-    }
-
-
-From the example above, it is not possible to create an object of the Animal class:
-
-    Animal myObj = new Animal(); // will generate an error
-
-To access the abstract class, it must be inherited from another class. Let's convert the Animal class we used in the 
-Polymorphism chapter to an abstract class:
-
-    // Abstract class
-
-    abstract class Animal {
-        // Abstract method (does not have a body)
-        public abstract void animalSound();
-        // Regular method
-        public void sleep() {
-            System.out.println("Zzz");
-        }
-    }
-    
-    // Subclass (inherit from Animal)
-    class Pig extends Animal {
-        public void animalSound() {
-            // The body of animalSound() is provided here
-            System.out.println("The pig says: wee wee");
-        }
-    }
-    
-    class Main {
-        public static void main(String[] args) {
-            Pig myPig = new Pig(); // Create a Pig object
-            myPig.animalSound();
-            myPig.sleep();
-        }
-    }
-
-Why And When To Use Abstract Classes and Methods?
-
-To achieve security - hide certain details and only show the important details of an object.
-
-Note: Abstraction can also be achieved with Interfaces, which you will learn more about in the next chapter.
-
-EX2:
-
-        // Code from filename: Car.java
-        // abstract class
-        abstract class Car {
-            public String fname = "John";
-            public int age = 24;
-            public void study(){}; // abstract method
-        }
-        
-        // Subclass (inherit from Car)
-        class Student extends Car {
-            public int graduationYear = 2018;
-            public void study() { // the body of the abstract method is provided here
-            System.out.println("Studying all day long");
-            }
-        }
-
-### Inheritance
-In Java, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" 
-into two categories:
-
-subclass (child) - the class that inherits from another class
-superclass (parent) - the class being inherited from
-To inherit from a class, use the extends keyword.
-
-In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass):
-
-
-    class Vehicle{
-        protected String brand = "Ford";
-        public void honk(){
-            System.out.println("Tut tut");
-            }
-    }
-
-    public class Car extends Vehicle {
-        private String modelName = "Mustang";
-        public static void main(String[] args) {
-        Car myCar = new Car();
-        myCar.honk();
-
-        System.out.println(myCar.brand + " " + myCar.modelName);
-        }
-    }
-
-### Polymorphism
-
-Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
-
-Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class. 
-Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.
-
-    class Animal  {
-        public void animalSound(){
-            System.out.println("It will make an animal sound");
-        }
-    }
-    
-    class Dog extends Animal{
-        @Override
-        public void animalSound() {
-            System.out.println("Dog will say: baw baw");
-        }
-    }
-    
-    class Pig extends Animal{
-        @Override
-        public void animalSound() {
-            System.out.println("Pig will say: wee wee");
-        }
-    }
-    
-    //Now we can create Pig and Dog objects and call the animalSound() method on both of them:
-    
-    public class Main{
-        public static void main(String[] args){
-            Animal myAnimal = new Animal();
-            Dog myDog = new Dog();
-            Pig myPig = new Pig();
-    
-            myAnimal.animalSound();
-            myDog.animalSound();
-            myPig.animalSound();
-        }
-    }
-
-### Interfaces
-
-Another way to achieve abstraction in Java, is with interfaces.
-
-An interface is a completely "abstract class" that is used to group related methods with empty bodies:
 
 ### Inner classes
 
@@ -607,3 +421,366 @@ Cant access directly. but from innerMethod by returning that value.
         }
     }
 
+
+
+
+# OOP Notes
+### Encapsulation
+
+// Person.Java
+
+    public class Person{
+    private String name;
+
+    // Getter
+    public String getName(){
+        return name;
+    }
+
+    // Setter
+    public void setName(String newName){
+        this.name = newName;
+        }
+    }
+
+// Main.java
+
+    public class Main {
+        public static void main(String[] args) {
+            Person person = new Person();
+            person.setName("jhon");
+            System.out.println(person.getName());
+        }
+    }
+
+When u declare variable as private, if you have to assign value or get that value,
+you have to use getter and setter inorder to do that. otherwise cannot access unless same class (Main, Person - 2 sep Java class).
+Cannot access private variable from outside of the class.
+
+### Abstraction
+
+Abstract Classes and Methods
+Data abstraction is the process of hiding certain details and showing only essential information to the user.
+Abstraction **can be achieved with either abstract classes or interfaces**
+
+The abstract keyword is a **non-access modifier, used for classes and methods**:
+
+**Abstract class:** is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+
+**Abstract method:** can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
+
+An abstract class can have both abstract and regular methods:
+
+    abstract class Animal {
+        public abstract void animalSound();
+            public void sleep() {
+                System.out.println("Zzz");
+            }
+    }
+
+
+From the example above, it is not possible to create an object of the Animal class:
+
+    Animal myObj = new Animal(); // will generate an error
+
+To access the abstract class, it must be inherited from another class. Let's convert the Animal class we used in the
+Polymorphism chapter to an abstract class:
+
+    // Abstract class
+
+    abstract class Animal {
+        // Abstract method (does not have a body)
+        public abstract void animalSound();
+        // Regular method
+        public void sleep() {
+            System.out.println("Zzz");
+        }
+    }
+    
+    // Subclass (inherit from Animal)
+    class Pig extends Animal {
+        public void animalSound() {
+            // The body of animalSound() is provided here
+            System.out.println("The pig says: wee wee");
+        }
+    }
+    
+    class Main {
+        public static void main(String[] args) {
+            Pig myPig = new Pig(); // Create a Pig object
+            myPig.animalSound();
+            myPig.sleep();
+        }
+    }
+
+Why And When To Use Abstract Classes and Methods?
+
+To achieve security - hide certain details and only show the important details of an object.
+
+Note: Abstraction can also be achieved with Interfaces, which you will learn more about in the next chapter.
+
+EX2:
+
+        // Code from filename: Car.java
+        // abstract class
+        abstract class Car {
+            public String fname = "John";
+            public int age = 24;
+            public void study(){}; // abstract method
+        }
+        
+        // Subclass (inherit from Car)
+        class Student extends Car {
+            public int graduationYear = 2018;
+            public void study() { // the body of the abstract method is provided here
+            System.out.println("Studying all day long");
+            }
+        }
+
+### Inheritance
+In Java, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept"
+into two categories:
+
+subclass (child) - the class that inherits from another class
+superclass (parent) - the class being inherited from
+To inherit from a class, use the extends keyword.
+
+In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass):
+
+
+    class Vehicle{
+        protected String brand = "Ford";
+        public void honk(){
+            System.out.println("Tut tut");
+            }
+    }
+
+    public class Car extends Vehicle {
+        private String modelName = "Mustang";
+        public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.honk();
+
+        System.out.println(myCar.brand + " " + myCar.modelName);
+        }
+    }
+
+### Polymorphism
+
+Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+
+Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class.
+Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.
+
+    class Animal  {
+        public void animalSound(){
+            System.out.println("It will make an animal sound");
+        }
+    }
+    
+    class Dog extends Animal{
+        @Override
+        public void animalSound() {
+            System.out.println("Dog will say: baw baw");
+        }
+    }
+    
+    class Pig extends Animal{
+        @Override
+        public void animalSound() {
+            System.out.println("Pig will say: wee wee");
+        }
+    }
+    
+    //Now we can create Pig and Dog objects and call the animalSound() method on both of them:
+    
+    public class Main{
+        public static void main(String[] args){
+            Animal myAnimal = new Animal();
+            Dog myDog = new Dog();
+            Pig myPig = new Pig();
+    
+            myAnimal.animalSound();
+            myDog.animalSound();
+            myPig.animalSound();
+        }
+    }
+
+### Interfaces
+
+Another way to achieve abstraction in Java, is with interfaces.
+
+An interface is a **completely "abstract class"** that is used to group related methods with empty bodies:
+
+    // interface
+    interface Animal {
+        public void animalSound(); // interface method (does not have a body)
+        public void run(); // interface method (does not have a body)
+    }
+
+To access the interface methods, the interface must be "implemented" (kinda like inherited) by another class with the
+implements keyword (instead of extends). The body of the interface method is provided by the "implement" class:
+
+    interface Animal{
+        public void animalSound(); // interface method (does not have a body)
+        public void sleep(); // interface method (does not have a body)
+    }
+    
+    class Pig implements Animal{
+    
+        @Override
+        // The body of animalSound() is provided here
+        public void animalSound() {
+            System.out.println("The pig says: wee wee");
+        }
+    
+        @Override
+        // The body of sleep() is provided here
+        public void sleep() {
+            System.out.println("Zzz");
+        }
+    }
+    
+    public class Main {
+        public static void main(String[] args) {
+            Pig myPig = new Pig();
+            myPig.animalSound();
+            myPig.sleep();
+        }
+    }
+
+**Notes on Interfaces:**
+
+* Like abstract classes, interfaces cannot be used to create objects (in the example above, it is not possible to create an "Animal" object in the MyMainClass)
+* Interface methods do not have a body - the body is provided by the "implement" class
+* On implementation of an interface, you must override all of its methods
+* Interface methods are by default abstract and public
+* Interface attributes are by default public, static and final
+* An interface cannot contain a constructor (as it cannot be used to create objects)
+
+Why And When To Use Interfaces?
+1) To achieve security - hide certain details and only show the important details of an object (interface).
+
+2) Java does not support "multiple inheritance" (a class can only inherit from one superclass).
+   However, it can be achieved with interfaces, because the class can implement multiple interfaces.
+
+Note: To implement multiple interfaces, separate them with a comma (see example below).
+
+### Multiple Interfaces
+
+To implement multiple interfaces, separate them with a comma:
+
+    interface FirstInterface{
+        public void firstMethod(); // interface method
+    }
+    
+    interface SecondInterface{
+        public void secondMethod(); // interface method
+    }
+    
+    class MyDemoClass implements FirstInterface, SecondInterface{
+    
+        @Override
+        public void firstMethod() {
+            System.out.println("Some text");
+        }
+    
+        @Override
+        public void secondMethod() {
+            System.out.println("Some other text");
+        }
+    }
+    
+    public class Main {
+        public static void main(String[] args) {
+            MyDemoClass demoClass = new MyDemoClass();
+            demoClass.firstMethod();
+            demoClass.secondMethod();
+        }
+    }
+
+### ENUMS
+
+An enum is a special **"class"** that represents a **group of constants** (unchangeable variables, like **final** variables).
+
+To create an enum, use the enum keyword (instead of class or interface), and separate the constants with a comma. Note that they should be in uppercase letters:
+
+    enum Level {
+        LOW,
+        MEDIUM,
+        HIGH
+    }
+
+You can access enum constants with the dot syntax:
+
+    Level myVar = Level.MEDIUM;
+
+Enum is short for "enumerations", which means "specifically listed".
+
+### Enum inside a Class
+
+You can also have an enum inside a class:
+
+    enum Level {
+        LOW,
+        MEDIUM,
+        HIGH
+    }
+    
+    public class Main{
+        public static void main(String[] args) {
+            Level myVar = Level.MEDIUM;
+            System.out.println(myVar);
+        }
+    }
+
+#### Enum in a Switch Statement
+
+Enums are often used in switch statements to check for corresponding values:
+
+
+    enum Level {
+        LOW,
+        MEDIUM,
+        HIGH
+    }
+    
+    public class Main {
+        public static void main(String[] args) {
+            Level myVar = Level.MEDIUM;
+    
+            switch(myVar) {
+              case LOW:
+                System.out.println("Low level");
+                break;
+              case MEDIUM:
+                 System.out.println("Medium level");
+                break;
+              case HIGH:
+                System.out.println("High level");
+                break;
+            }
+        }
+    }
+
+
+#### Loop Through an Enum
+
+The enum type has a values() method, which returns an array of all enum constants. This method is useful when you want to loop through the constants of an enum:
+
+Example:
+
+    for (Level myVar : Level.values()) {
+        System.out.println(myVar);
+    }
+
+##### Difference between Enums and Classes
+
+An enum can, just like a class, have attributes and methods. The only difference is that enum constants are
+**public, static and final** (unchangeable - cannot be overridden).
+
+An enum **cannot be used to create objects,** and it cannot extend other classes (but it can implement interfaces).
+
+##### Why And When To Use Enums?
+
+Use enums when you have values that you know aren't going to change, like month days, days, colors, deck of cards, etc.
